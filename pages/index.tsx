@@ -7,12 +7,13 @@ export default () => {
         body, html {
             font-size: 1.1em;
             margin: 30px 0;
+            background-color: #282828;
         }
     `
 
     const theme: any = {
         fontFamily: "'Raleway', sans-serif",
-        color: "#5f6f81",
+        color: "#cfcfcf",
     }
 
     const Wrapper: StyledComponent<'div', {}> = styled.div`
