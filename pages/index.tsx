@@ -1,4 +1,4 @@
-import styled, { ThemeProvider, createGlobalStyle, GlobalStyleComponent } from 'styled-components'
+import styled, { createGlobalStyle, GlobalStyleComponent, StyledComponent, ThemeProvider } from 'styled-components'
 import reset from 'styled-reset'
 
 export default () => {
@@ -15,7 +15,7 @@ export default () => {
         color: "#5f6f81",
     }
 
-    const Wrapper = styled.div`
+    const Wrapper: StyledComponent<'div', {}> = styled.div`
         width: 80%;
         padding: 32px 0;
         margin: 0 auto;
