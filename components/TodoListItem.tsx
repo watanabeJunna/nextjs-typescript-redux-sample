@@ -6,7 +6,7 @@ type Props = {
 }
 
 export default ({ task }: Props): JSX.Element => {
-    const TaskItem: StyledComponent<'div', {}> = styled.div`
+    const Wrapper: StyledComponent<'div', {}> = styled.div`
         padding: 12px 24px;
         margin: auto 0;
         font-size: 1.4em;
@@ -25,14 +25,14 @@ export default ({ task }: Props): JSX.Element => {
 
     return (
         <>
-            <TaskItem>
+            <Wrapper>
                 <Inner>
                     <CheckBox />
                     <Task>
                         {task}
                     </Task>
                 </Inner>
-            </TaskItem>
+            </Wrapper>
         </>
     )
 }
