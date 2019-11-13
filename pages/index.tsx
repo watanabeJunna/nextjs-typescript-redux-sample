@@ -2,11 +2,9 @@ import styled, { createGlobalStyle, GlobalStyleComponent, StyledComponent, Theme
 import reset from 'styled-reset'
 import { Container } from '../components/Container'
 import TodoDetails from '../components/TodoDetail'
-import { Store } from 'redux'
+import { ComponentProps, PageContextProps } from '../interfaces/todos'
 
-const Index = (props: any) => {
-    console.log(props)
-
+const Index = ({ state }: ComponentProps) => {
     const GlobalStyle: GlobalStyleComponent<{}, {}> = createGlobalStyle`
         ${reset}
         body, html {
@@ -47,7 +45,7 @@ const Index = (props: any) => {
                         <Wrapper>
                             <p>Todo App</p>
                         </Wrapper>
-                        <TodoDetails />
+                        <TodoDetails state={state} />
                     </Editer>
                 </Container>
             </ThemeProvider>
@@ -55,8 +53,9 @@ const Index = (props: any) => {
     )
 }
 
-Index.getInitialProps = async ({ store }: { store: Store }) => {
-    return { state: store.getState() }
+Index.getInitialProps = async ({ store }: PageContextProps): Promise<ComponentProps> => {
+    const state = store.getState()
+    return { state: state.todos.todos }
 }
 
 export default Index

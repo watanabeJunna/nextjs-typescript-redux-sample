@@ -1,12 +1,18 @@
 import Task from './TodoListItem'
+import { ComponentProps } from '../interfaces/todos'
+import { Todo } from '../store/todos'
 
-export default () => {
+export default ({ state }: ComponentProps) => {
     return (
         <>
-            <Task task='Export Component完成させたい' />
-            <Task task='一通り突貫したテストをしたい' />
-            <Task task='DataContentコンポーネントのレンダリングを効率化したい' />
-            <Task task='connectを導入したい、Reduxのやつ' />
+            {state.map((item: Todo, index: number) => {
+                return (
+                    <Task
+                        key={index}
+                        task={item.task}
+                    />
+                )
+            })}
         </>
     )
 }
