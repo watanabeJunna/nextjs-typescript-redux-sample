@@ -32,7 +32,7 @@ export default () => {
             <GlobalStyle />
             <ThemeProvider theme={theme}>
                 <Wrapper>
-                    <p>Counter App</p>
+                    <p>Todo App</p>
                 </Wrapper>
             </ThemeProvider>
         </>
