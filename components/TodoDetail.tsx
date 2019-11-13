@@ -9,13 +9,15 @@ export default () => {
     return (
         <>
             {todos.map((item: Todo, index: number) => {
-                return (
-                    <Task
-                        id={item.id}
-                        key={index}
-                        task={item.task}
-                    />
-                )
+                if (item.done === false) {
+                    return (
+                        <Task
+                            id={item.id}
+                            key={index}
+                            task={item.task}
+                        />
+                    )
+                }
             })}
             <PlusButton />
         </>
