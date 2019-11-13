@@ -1,7 +1,11 @@
-import { useRef, MutableRefObject } from 'react'
+import { useDispatch } from 'react-redux'
+import { useRef, MutableRefObject, Dispatch } from 'react'
 import styled, { StyledComponent } from 'styled-components'
+import { addTodo } from '../store/todos/actions'
 
 export default () => {
+    const dispatch: Dispatch<any> = useDispatch()
+
     const taskNameInputRef: MutableRefObject<HTMLInputElement | null> = useRef(null)
 
     const Wrapper: StyledComponent<'div', {}> = styled.div`
@@ -53,7 +57,7 @@ export default () => {
             return
         }
 
-        console.log(inputValue)
+        dispatch(addTodo(inputValue))
     }
 
     return (
