@@ -2,10 +2,11 @@ import styled, { StyledComponent } from 'styled-components'
 import CheckBox from './Checkbox'
 
 type Props = {
+    id: string
     task: string
 }
 
-export default ({ task }: Props): JSX.Element => {
+export default ({ id, task }: Props): JSX.Element => {
     const Wrapper: StyledComponent<'div', {}> = styled.div`
         padding: 12px 24px;
         margin: auto 0;
@@ -27,7 +28,7 @@ export default ({ task }: Props): JSX.Element => {
         <>
             <Wrapper>
                 <Inner>
-                    <CheckBox />
+                    <CheckBox id={id} />
                     <Task>
                         {task}
                     </Task>

@@ -3,16 +3,23 @@ import React, {
     SetStateAction,
     useState,
 } from 'react'
+import { useDispatch } from 'react-redux'
 import styled, { StyledComponent } from 'styled-components'
+
+type Props = {
+    id: string
+}
 
 /**
  * @see https://medium.com/@colebemis/building-a-checkbox-component-with-react-and-styled-components-8d3aa1d826dd
  */
-export default () => {
+export default ({ id }: Props) => {
     const [checked, setChecked]: [
         boolean,
         Dispatch<SetStateAction<boolean>>
     ] = useState<boolean>(false)
+
+    const dispatch: Dispatch<any> = useDispatch()
 
     const HiddenCheckbox: StyledComponent<'input', any, any> = styled.input.attrs({ type: 'checkbox' })`
         border: 0;
@@ -76,14 +83,21 @@ export default () => {
         </CheckboxContainer>
     )
 
+    const handleClick = () => {
+        setTimeout(() => {
+            // dispatch(doneTodo)
+        }, 100)
+    }
+
     return (
-        <>
+        <div>
             <label>
                 <Checkbox
                     checked={checked}
+                    onClick={handleClick}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => setChecked(e.target.checked)}
                 />
             </label>
-        </>
+        </div>
     )
 }
