@@ -1,12 +1,12 @@
 import { Actions } from '../actions'
 
-interface Todo {
+export interface Todo {
     id: string,
     done: boolean,
     task: string,
 }
 
-interface State {
+export interface State {
     todos: Todo[]
 }
 
