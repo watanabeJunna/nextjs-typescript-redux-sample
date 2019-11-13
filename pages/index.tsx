@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle, GlobalStyleComponent, StyledComponent, ThemeProvider } from 'styled-components'
+import TodoDetails from '../components/TodoDetail'
 import reset from 'styled-reset'
 
 export default () => {
@@ -34,6 +35,7 @@ export default () => {
                 <Wrapper>
                     <p>Todo App</p>
                 </Wrapper>
+                <TodoDetails />
             </ThemeProvider>
         </>
     )
