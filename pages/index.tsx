@@ -2,10 +2,8 @@ import styled, { createGlobalStyle, GlobalStyleComponent, StyledComponent, Theme
 import reset from 'styled-reset'
 import { Container } from '../components/Container'
 import TodoDetails from '../components/TodoDetail'
-import { ComponentProps, PageContextProps } from '../interfaces/todos'
-import { State } from '../store/todos'
 
-const Index = ({ store }: PageContextProps) => {
+export default () => {
     const GlobalStyle: GlobalStyleComponent<{}, {}> = createGlobalStyle`
         ${reset}
         body, html {
@@ -46,16 +44,10 @@ const Index = ({ store }: PageContextProps) => {
                         <Wrapper>
                             <p>Todo App</p>
                         </Wrapper>
-                        <TodoDetails store={store} />
+                        <TodoDetails />
                     </Editor>
                 </Container>
             </ThemeProvider>
         </>
     )
 }
-
-Index.getInitialProps = async ({ store }: PageContextProps): Promise<PageContextProps> => {
-    return { store }
-}
-
-export default Index

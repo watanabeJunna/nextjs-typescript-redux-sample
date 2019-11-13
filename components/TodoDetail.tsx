@@ -1,12 +1,14 @@
+import { useSelector } from 'react-redux'
 import Task from './TodoListItem'
-import { PageContextProps } from '../interfaces/todos'
 import { Todo } from '../store/todos'
 import PlusButton from './PlusButton'
 
-export default ({ store }: PageContextProps) => {
+export default () => {
+    const todos = useSelector((state: any) => state.todos.todos)
+
     return (
         <>
-            {store.getState().todos.todos.map((item: Todo, index: number) => {
+            {todos.map((item: Todo, index: number) => {
                 return (
                     <Task
                         key={index}
@@ -14,7 +16,7 @@ export default ({ store }: PageContextProps) => {
                     />
                 )
             })}
-            <PlusButton store={store} />
+            <PlusButton />
         </>
     )
 }
