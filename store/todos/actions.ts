@@ -24,3 +24,17 @@ export const doneTodo = (id: string) => {
         payload: { id }
     }
 }
+
+/**
+ * @param id
+ * @param task
+ */
+export const changeTodo = (id: string, task: string) => {
+    return {
+        type: types.changeTodo,
+        payload: {
+            id,
+            task
+        }
+    }
+}
