@@ -5,6 +5,7 @@ import React, {
 } from 'react'
 import { useDispatch } from 'react-redux'
 import styled, { StyledComponent } from 'styled-components'
+import { doneTodo } from '../store/todos/actions'
 
 type Props = {
     id: string
@@ -85,12 +86,12 @@ export default ({ id }: Props) => {
 
     const handleClick = () => {
         setTimeout(() => {
-            // dispatch(doneTodo)
-        }, 100)
+            dispatch(doneTodo(id))
+        }, 300)
     }
 
     return (
-        <div>
+        <>
             <label>
                 <Checkbox
                     checked={checked}
@@ -98,6 +99,6 @@ export default ({ id }: Props) => {
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => setChecked(e.target.checked)}
                 />
             </label>
-        </div>
+        </>
     )
 }
