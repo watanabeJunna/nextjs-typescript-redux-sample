@@ -10,10 +10,10 @@ const inject: State = {
         '一通り突貫したテストをしたい',
         'DataContentコンポーネントのレンダリングを効率化したい',
         'connectを導入したい、Reduxのやつ',
-    ].map((e: string) => {
+    ].map((e: string, c: number) => {
         return {
             id: uuid(),
-            done: false,
+            done: c == 2,
             task: e
         } as Todo
     })
