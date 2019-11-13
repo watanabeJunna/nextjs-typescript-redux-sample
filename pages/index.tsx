@@ -15,7 +15,7 @@ const Index = ({ state }: ComponentProps) => {
         }
     `
 
-    const Editer: StyledComponent<'div', {}> = styled.div`
+    const Editor: StyledComponent<'div', {}> = styled.div`
         padding: 24px 48px;
         margin: 0 auto;
         background-color: #202020;
@@ -42,12 +42,12 @@ const Index = ({ state }: ComponentProps) => {
             <GlobalStyle />
             <ThemeProvider theme={theme}>
                 <Container>
-                    <Editer>
+                    <Editor>
                         <Wrapper>
                             <p>Todo App</p>
                         </Wrapper>
                         <TodoDetails state={state} />
-                    </Editer>
+                    </Editor>
                 </Container>
             </ThemeProvider>
         </>
