@@ -1,6 +1,7 @@
 import styled, { createGlobalStyle, GlobalStyleComponent, StyledComponent, ThemeProvider } from 'styled-components'
-import TodoDetails from '../components/TodoDetail'
 import reset from 'styled-reset'
+import { Container } from '../components/Container'
+import TodoDetails from '../components/TodoDetail'
 
 export default () => {
     const GlobalStyle: GlobalStyleComponent<{}, {}> = createGlobalStyle`
@@ -12,13 +13,20 @@ export default () => {
         }
     `
 
+    const Editer: StyledComponent<'div', {}> = styled.div`
+        padding: 24px 48px;
+        margin: 0 auto;
+        background-color: #202020;
+        border-radius: 15px;
+        box-shadow: 0px 1px 15px rgb(16, 16, 16);
+    `
+
     const theme: any = {
         fontFamily: "'Raleway', sans-serif",
         color: "#cfcfcf",
     }
 
     const Wrapper: StyledComponent<'div', {}> = styled.div`
-        width: 80%;
         padding: 32px 0;
         margin: 0 auto;
         color: ${props => props.theme.color};
@@ -32,10 +40,14 @@ export default () => {
         <>
             <GlobalStyle />
             <ThemeProvider theme={theme}>
-                <Wrapper>
-                    <p>Todo App</p>
-                </Wrapper>
-                <TodoDetails />
+                <Container>
+                    <Editer>
+                        <Wrapper>
+                            <p>Todo App</p>
+                        </Wrapper>
+                        <TodoDetails />
+                    </Editer>
+                </Container>
             </ThemeProvider>
         </>
     )
