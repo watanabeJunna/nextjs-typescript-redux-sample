@@ -3,6 +3,7 @@ import reset from 'styled-reset'
 import { Container } from '../components/Container'
 import TodoDetails from '../components/TodoDetail'
 import { ComponentProps, PageContextProps } from '../interfaces/todos'
+import { State } from '../store/todos'
 
 const Index = ({ state }: ComponentProps) => {
     const GlobalStyle: GlobalStyleComponent<{}, {}> = createGlobalStyle`
@@ -54,7 +55,7 @@ const Index = ({ state }: ComponentProps) => {
 }
 
 Index.getInitialProps = async ({ store }: PageContextProps): Promise<ComponentProps> => {
-    const state = store.getState()
+    const state: { todos: State } = store.getState()
     return { state: state.todos.todos }
 }
 
