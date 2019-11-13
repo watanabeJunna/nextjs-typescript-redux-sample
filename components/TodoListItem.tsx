@@ -20,7 +20,7 @@ export default ({ task }: Props): JSX.Element => {
     `
 
     const Task: StyledComponent<'div', {}> = styled.div`
-        color: #a7a6a3;
+        color: ${props => props.theme.color};
     `
 
     return (
