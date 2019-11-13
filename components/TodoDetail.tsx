@@ -1,5 +1,4 @@
 import Task from './TodoListItem'
-import Checkbox from './Checkbox'
 
 export default () => {
     return (
