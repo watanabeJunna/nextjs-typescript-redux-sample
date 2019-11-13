@@ -5,7 +5,7 @@ import TodoDetails from '../components/TodoDetail'
 import { ComponentProps, PageContextProps } from '../interfaces/todos'
 import { State } from '../store/todos'
 
-const Index = ({ state }: ComponentProps) => {
+const Index = ({ store }: PageContextProps) => {
     const GlobalStyle: GlobalStyleComponent<{}, {}> = createGlobalStyle`
         ${reset}
         body, html {
@@ -46,7 +46,7 @@ const Index = ({ state }: ComponentProps) => {
                         <Wrapper>
                             <p>Todo App</p>
                         </Wrapper>
-                        <TodoDetails state={state} />
+                        <TodoDetails store={store} />
                     </Editor>
                 </Container>
             </ThemeProvider>
@@ -54,9 +54,8 @@ const Index = ({ state }: ComponentProps) => {
     )
 }
 
-Index.getInitialProps = async ({ store }: PageContextProps): Promise<ComponentProps> => {
-    const state: { todos: State } = store.getState()
-    return { state: state.todos.todos }
+Index.getInitialProps = async ({ store }: PageContextProps): Promise<PageContextProps> => {
+    return { store }
 }
 
 export default Index

@@ -1,11 +1,11 @@
 import Task from './TodoListItem'
-import { ComponentProps } from '../interfaces/todos'
+import { PageContextProps } from '../interfaces/todos'
 import { Todo } from '../store/todos'
 
-export default ({ state }: ComponentProps) => {
+export default ({ store }: PageContextProps) => {
     return (
         <>
-            {state.map((item: Todo, index: number) => {
+            {store.getState().todos.todos.map((item: Todo, index: number) => {
                 return (
                     <Task
                         key={index}
