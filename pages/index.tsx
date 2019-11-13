@@ -28,10 +28,9 @@ export default () => {
 
     const Wrapper: StyledComponent<'div', {}> = styled.div`
         padding: 32px 0;
-        margin: 0 auto;
-        color: ${props => props.theme.color};
+        margin: 0 auto 28px;
         border-bottom: 1px solid #afafbc;
-        margin-bottom: 50px;
+        color: ${props => props.theme.color};
         font-size: 1.9em;
         font-family: ${props => props.theme.fontFamily};
     `
