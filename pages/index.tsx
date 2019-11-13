@@ -2,8 +2,11 @@ import styled, { createGlobalStyle, GlobalStyleComponent, StyledComponent, Theme
 import reset from 'styled-reset'
 import { Container } from '../components/Container'
 import TodoDetails from '../components/TodoDetail'
+import { Store } from 'redux'
 
-export default () => {
+const Index = (props: any) => {
+    console.log(props)
+
     const GlobalStyle: GlobalStyleComponent<{}, {}> = createGlobalStyle`
         ${reset}
         body, html {
@@ -51,3 +54,9 @@ export default () => {
         </>
     )
 }
+
+Index.getInitialProps = async ({ store }: { store: Store }) => {
+    return { state: store.getState() }
+}
+
+export default Index
