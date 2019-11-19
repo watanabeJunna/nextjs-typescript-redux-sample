@@ -73,7 +73,10 @@ export default ({ id }: Props) => {
         margin-bottom: -1.5px;
     `
 
-    const Checkbox = ({ checked, ...props }: any): JSX.Element => (
+    const Checkbox: React.FC<CheckboxProps & {
+        onClick: () => void,
+        onChange: (...args: any) => void
+    }> = ({ checked, ...props }) => (
         <CheckboxContainer>
             <HiddenCheckbox checked={checked} {...props} />
             <StyledCheckbox checked={checked}>
