@@ -6,10 +6,9 @@ import { Todo, State } from './todos'
 /// DEBUG
 const inject: State = {
     todos: [
-        'Export Component完成させたい',
-        '一通り突貫したテストをしたい',
-        'DataContentコンポーネントのレンダリングを効率化したい',
-        'connectを導入したい、Reduxのやつ',
+        'Redux Persist使いたい',
+        'Jestでテストしたい',
+        '型を修正とかしたい',
     ].map((e: string) => {
         return {
             id: uuid(),
