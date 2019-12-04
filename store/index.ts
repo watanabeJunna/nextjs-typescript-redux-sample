@@ -1,6 +1,6 @@
 import { createStore, Store, Reducer } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import { persistReducer, persistStore } from 'redux-persist'
+import { persistReducer, persistStore, Persistor } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import { initialState, reducer } from './reducer'
 
@@ -13,12 +13,12 @@ const makeConfiguredStore = (reducer: Reducer, initialState: StoreState) =>
     createStore(reducer, initialState, composeWithDevTools())
 
 export type ConfiguredStore = ReturnType<typeof makeConfiguredStore> & {
-    persistor: any
+    persistor: Persistor
 }
 
 export const initStore = (state = initialState()) => {
     if (process.browser) {
-        const persistConfig: any = {
+        const persistConfig = {
             key: 'root',
             whitelist: ['todos'], 
             storage
