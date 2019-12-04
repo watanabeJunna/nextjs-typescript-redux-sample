@@ -1,21 +1,9 @@
-import uuid from 'uuid/v4'
 import { combineReducers } from 'redux'
 import * as Todos from './todos'
-import { Todo, State } from './todos'
+import { State } from './todos'
 
-/// DEBUG
 const inject: State = {
-    todos: [
-        'Redux Persist使いたい',
-        'Jestでテストしたい',
-        '型を修正とかしたい',
-    ].map((e: string) => {
-        return {
-            id: uuid(),
-            done: false,
-            task: e
-        } as Todo
-    })
+    todos: []
 }
 
 export const initialState = () => {
