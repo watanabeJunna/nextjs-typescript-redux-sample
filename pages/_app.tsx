@@ -2,8 +2,9 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import App, { AppContext } from 'next/app'
 import withRedux from 'next-redux-wrapper'
-import { initStore } from '../store'
 import { PageContextProps } from '../interfaces/todos'
+import { PersistGate } from 'redux-persist/integration/react'
+import { initStore } from '../store'
 
 export default withRedux(initStore)(
     class extends App<PageContextProps> {
@@ -20,7 +21,9 @@ export default withRedux(initStore)(
 
             return (
                 <Provider store={store}>
-                    <Component {...pageProps} />
+                    <PersistGate loading={null} persistor={store.persistor}>
+                        <Component {...pageProps} />
+                    </PersistGate>
                 </Provider>
             )
         }
